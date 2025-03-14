@@ -1,0 +1,15 @@
+package iuh.fit.se.library;
+
+
+public class BookFactory {
+    public static Book createBook(String type, String title, String author, Object... details) {
+        if ("Sách giấy".equalsIgnoreCase(type)) {
+            return new PaperBook(title, author, (String) details[1], (Integer) details[0]); 
+        } else if ("Sách điện tử".equalsIgnoreCase(type)) {
+            return new EBook(title, author, (String) details[1], (String) details[0]); 
+        } else if ("Sách nói".equalsIgnoreCase(type)) {
+            return new AudioBook(title, author, (String) details[1], (Double) details[0]); 
+        }
+        return null; 
+    }
+}

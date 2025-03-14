@@ -1,0 +1,5 @@
+package iuh.fit.se.library.borrowing;
+
+public interface Borrowable {
+	void borrowBook(Book book, String borrowerName); 
+}

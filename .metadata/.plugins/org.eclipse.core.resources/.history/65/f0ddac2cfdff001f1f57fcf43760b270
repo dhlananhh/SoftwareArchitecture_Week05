@@ -1,0 +1,66 @@
+package iuh.fit.se.library;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import iuh.fit.se.library.search.SearchStrategy;
+import iuh.fit.se.library.notification.*;
+
+public class Library implements LibraryEventSubject {
+	private static Library instance;
+    private List<Book> books = new ArrayList<>(); 
+    private List<LibraryEventObserver> observers = new ArrayList<>();
+
+    private Library() {
+    	
+    }
+
+    public static Library getInstance() {
+        if (instance == null) {
+            synchronized (Library.class) { 
+                if (instance == null) {
+                    instance = new Library();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public List<Book> getAllBooks() {
+        return books;
+    }
+    
+    public List<Book> searchBooks(String keyword, SearchStrategy strategy) {
+        return strategy.searchBooks(keyword);
+    }
+    
+    @Override
+    public void registerObserver(LibraryEventObserver observer) { // Implement registerObserver
+        observers.add(observer);
+    }
+
+    @Override
+    public void unregisterObserver(LibraryEventObserver observer) { // Implement unregisterObserver
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyNewBookAdded(Book book) { // Implement notifyNewBookAdded
+        for (LibraryEventObserver observer : observers) {
+            observer.onNewBookAdded(book);
+        }
+    }
+
+    @Override
+    public void notifyBookLoanExpired(Book book) { // Implement notifyBookLoanExpired
+        for (LibraryEventObserver observer : observers) {
+            observer.onBookLoanExpired(book);
+        }
+    }
+
+    @Override 
+    public void addBook(Book book) { // Cập nhật addBook để thông báo sách mới
+        books.add(book);
+        notifyNewBookAdded(book); // Thông báo khi thêm sách mới
+    }
+}

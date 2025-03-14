@@ -1,0 +1,14 @@
+package iuh.fit.se.library.borrowing;
+
+public class BorrowingDecorator {
+	protected Borrowable borrowable; // HAS-A relationship với component interface
+
+    public BorrowingDecorator(Borrowable borrowable) {
+        this.borrowable = borrowable;
+    }
+
+    @Override
+    public void borrowBook(Book book, String borrowerName) {
+        borrowable.borrowBook(book, borrowerName); // Delegate - Gọi phương thức của component gốc
+    }
+}
