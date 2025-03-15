@@ -3,7 +3,8 @@ package iuh.fit.se.library;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import iuh.fit.se.library.search.SearchStrategy;
 
 
 public class Library {
@@ -71,22 +72,7 @@ public class Library {
         }
     }
 
-
-    public List<Book> searchBookByTitle(String title) {
-        return books.stream()
-                .filter(book -> book.getTitle().toLowerCase().contains(title.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
-    public List<Book> searchBookByAuthor(String author) {
-        return books.stream()
-                .filter(book -> book.getAuthor().toLowerCase().contains(author.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
-    public List<Book> searchBookByGenre(String genre) {
-        return books.stream()
-                .filter(book -> book.getGenre().toLowerCase().contains(genre.toLowerCase()))
-                .collect(Collectors.toList());
+    public List<Book> searchBooks(SearchStrategy strategy, String keyword) {
+        return strategy.searchBooks(keyword); 
     }
 }

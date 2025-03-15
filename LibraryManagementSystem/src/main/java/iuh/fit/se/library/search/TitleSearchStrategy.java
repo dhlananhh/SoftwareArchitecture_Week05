@@ -8,10 +8,9 @@ import java.util.stream.Collectors;
 public class TitleSearchStrategy implements SearchStrategy {
 	@Override
     public List<Book> searchBooks(String keyword) {
-        System.out.println("Tìm kiếm sách theo tiêu đề: '" + keyword + "'");
-        List<Book> books = Library.getInstance().getAllBooks(); // Lấy danh sách sách từ Library
-        return books.stream()
-                    .filter(book -> book.getTitle().toLowerCase().contains(keyword.toLowerCase()))
-                    .collect(Collectors.toList());
+        List<Book> allBooks = Library.getInstance().getAllBooks(); 
+        return allBooks.stream()
+                .filter(book -> book.getTitle().toLowerCase().contains(keyword.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }

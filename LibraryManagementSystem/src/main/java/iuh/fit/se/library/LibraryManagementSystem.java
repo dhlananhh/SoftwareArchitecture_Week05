@@ -1,6 +1,12 @@
 package iuh.fit.se.library;
 
+
 import java.util.List;
+
+import iuh.fit.se.library.search.AuthorSearchStrategy;
+import iuh.fit.se.library.search.GenreSearchStrategy;
+import iuh.fit.se.library.search.TitleSearchStrategy;
+
 
 public class LibraryManagementSystem {
     public static void main(String[] args) {
@@ -35,30 +41,33 @@ public class LibraryManagementSystem {
         library.displayAllBooks();
         System.out.println("\n---\n");
 
-        // Tìm kiếm sách theo tiêu đề
-        System.out.println("Tìm kiếm sách theo tiêu đề 'Sherlock':");
-        List<Book> searchResultsTitle = library.searchBookByTitle("Sherlock");
-        searchResultsTitle.forEach(Book::displayBookInfo);
-        System.out.println("\n---\n");
-
-        // Tìm kiếm sách theo tác giả
-        System.out.println("Tìm kiếm sách theo tác giả 'Tolkien':");
-        List<Book> searchResultsAuthor = library.searchBookByAuthor("Tolkien");
-        searchResultsAuthor.forEach(Book::displayBookInfo);
-        System.out.println("\n---\n");
-
-        // **DEMO Tìm kiếm sách theo thể loại**
+        // Tìm kiếm sách theo thể loại
         System.out.println("Tìm kiếm sách theo thể loại 'Lãng mạn':");
-        List<Book> searchResultsGenre = library.searchBookByGenre("Lãng mạn");
-        searchResultsGenre.forEach(Book::displayBookInfo);
+        GenreSearchStrategy genreStrategy = new GenreSearchStrategy();
+        List<Book> searchResultsGenreStrategy = library.searchBooks(genreStrategy, "Lãng mạn"); 
+        searchResultsGenreStrategy.forEach(Book::displayBookInfo);
         System.out.println("\n---\n");
 
+        // Tìm kiếm sách theo Tác giả
+        System.out.println("Tìm kiếm sách theo Tác giả 'Doyle':");
+        AuthorSearchStrategy authorStrategy = new AuthorSearchStrategy();
+        List<Book> searchResultsAuthorStrategy = library.searchBooks(authorStrategy, "Doyle"); 
+        searchResultsAuthorStrategy.forEach(Book::displayBookInfo);
+        System.out.println("\n---\n");
+
+        // Tìm kiếm sách theo Tiêu đề
+        System.out.println("Tìm kiếm sách theo Tiêu đề 'Lord':");
+        TitleSearchStrategy titleStrategy = new TitleSearchStrategy();
+        List<Book> searchResultsTitleStrategy = library.searchBooks(titleStrategy, "Lord"); 
+        searchResultsTitleStrategy.forEach(Book::displayBookInfo);
+        System.out.println("\n---\n");
 
         // Trả sách
         library.returnBook(book1);
         System.out.println("\n---\n");
 
         // Hiển thị lại danh sách sách sau khi trả
+        System.out.println("Danh sách sách sau khi trả:");
         library.displayAllBooks();
 
     }
