@@ -6,11 +6,22 @@ import java.util.List;
 import iuh.fit.se.library.search.AuthorSearchStrategy;
 import iuh.fit.se.library.search.GenreSearchStrategy;
 import iuh.fit.se.library.search.TitleSearchStrategy;
+import iuh.fit.se.library.notification.LibrarianObserver;
+import iuh.fit.se.library.borrow.*;
 
 
-public class LibraryManagementSystem {
+public class LibraryManagementDemo {
     public static void main(String[] args) {
-        Library library = Library.getInstance(); // Lấy instance Singleton của thư viện
+    	// Lấy instance Singleton của thư viện
+        Library library = Library.getInstance(); 
+        
+        // Tạo các Observer (nhân viên thư viện)
+        LibrarianObserver librarian1 = new LibrarianObserver("Lan");
+        LibrarianObserver librarian2 = new LibrarianObserver("Hùng");
+        
+        // Đăng ký Observers với thư viện (Subject)
+        library.registerObserver(librarian1);
+        library.registerObserver(librarian2);
 
         // Tạo các sách mới (sử dụng Factory), thêm thể loại vào
         Book book1 = BookFactory.createBook("Sách giấy", "Sherlock Holmes: A Study in Scarlet", "Arthur Conan Doyle", "Trinh thám", 250);
@@ -26,16 +37,39 @@ public class LibraryManagementSystem {
         library.addBook(book4);
         library.addBook(book5);
 
-
         // Hiển thị danh sách tất cả sách
         System.out.println("\n---\n");
         library.displayAllBooks();
         System.out.println("\n---\n");
 
-        // Mượn sách
-        library.borrowBook(book1);
-        library.borrowBook(book4); // Thử mượn sách không có trong thư viện
+        // DEMO MƯỢN SÁCH VỚI DECORATOR PATTERN
+        Book borrowedBook1 = library.getAllBooks().get(0); 
+        System.out.println("\n--- DEMO MƯỢN SÁCH VỚI DECORATOR ---");
+        System.out.println("\n1. Mượn sách cơ bản:");
+        library.borrowBook(borrowedBook1); 
+        System.out.println("\n2. Mượn sách và gia hạn 2 tuần:");
+        Borrowable borrowWithExtension = new ExtendedReturnDateBorrowDecorator(new DefaultBorrowable(), 14); // Decorator gia hạn
+        borrowWithExtension.borrow(book1);
+        System.out.println("\n3. Mượn sách và yêu cầu phiên bản chữ nổi:");
+        Borrowable borrowWithSpecialEdition = new SpecialEditionRequestBorrowDecorator(new DefaultBorrowable(), "Chữ nổi"); // Decorator phiên bản đặc biệt
+        borrowWithSpecialEdition.borrow(book1); // Mượn sách với decorator phiên bản đặc biệt
+
+        System.out.println("\n4. Mượn sách với gia hạn VÀ yêu cầu phiên bản đặc biệt (kết hợp decorators):");
+        Borrowable borrowCombined = new ExtendedReturnDateBorrowDecorator( // Kết hợp decorators
+        		new SpecialEditionRequestBorrowDecorator(new DefaultBorrowable(), "Bản dịch tiếng Việt"), // Bao decorator này bởi decorator khác
+                                     30); // Gia hạn 30 ngày
+        borrowCombined.borrow(book1); // Mượn sách với combination decorators
+
         System.out.println("\n---\n");
+        
+        // Trả sách
+        library.returnBook(book1);
+        System.out.println("\n---\n");
+        
+        // Mượn sách
+//        library.borrowBook(book1);
+//        library.borrowBook(book4); 
+//        System.out.println("\n---\n");
 
         // Hiển thị lại danh sách sách sau khi mượn
         library.displayAllBooks();
@@ -60,10 +94,6 @@ public class LibraryManagementSystem {
         TitleSearchStrategy titleStrategy = new TitleSearchStrategy();
         List<Book> searchResultsTitleStrategy = library.searchBooks(titleStrategy, "Lord"); 
         searchResultsTitleStrategy.forEach(Book::displayBookInfo);
-        System.out.println("\n---\n");
-
-        // Trả sách
-        library.returnBook(book1);
         System.out.println("\n---\n");
 
         // Hiển thị lại danh sách sách sau khi trả
