@@ -20,6 +20,6 @@ public class AudioBook extends Book {
     @Override
     public void displayBookInfo() {
         super.displayBookInfo();
-        System.out.println("\nThời lượng: " + durationHours + " giờ");
+        System.out.println("Thời lượng: " + durationHours + " giờ" + "\n");
     }
 }
