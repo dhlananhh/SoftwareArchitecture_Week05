@@ -17,7 +17,8 @@
 - Tập tin chỉ chứa dữ liệu, không chứa thư mục/tập tin khác.
 - Cả thư mục và tập tin đều có thể được hiển thị thông tin.
 
-**Sơ đồ UML**
+**Sơ đồ UML:**
+
 ![File System UML](proof_images/Exercise01_FileSystem_UMLDiagram.svg)
 
 **Giải thích về lựa chọn Design Pattern (Composite Pattern) cho bài toán này:**
@@ -28,6 +29,7 @@
 - **Cung cấp tính năng mở rộng**: Composite Pattern giúp dễ dàng thêm các loại đối tượng mới vào trong cấu trúc mà không cần thay đổi mã hiện tại, giúp duy trì nguyên tắc mở/đóng (Open/Closed Principle) trong thiết kế.
 
 **Kết quả:**
+
 ![File System Demo](proof_images/Exercise01_FileSystemDemo.png)
 
 **Kết luận:**
@@ -40,7 +42,8 @@ Composite Pattern giúp chúng ta thiết kế hệ thống quản lý thư mụ
 
 **Bài toán**: Hệ thống cần thông báo cho các nhà đầu tư/thành viên nhóm khi có thay đổi giá cổ phiếu/trạng thái công việc.
 
-**Sơ đồ UML**
+**Sơ đồ UML:**
+
 ![Stock Market UML](proof_images/Exercise02_StockMarket_UMLDiagram.svg)
 
 **Giải thích về lựa chọn Design Pattern (Observer Pattern) cho bài toán này:**
@@ -50,6 +53,7 @@ Composite Pattern giúp chúng ta thiết kế hệ thống quản lý thư mụ
 - **Mở rộng Observer dễ dàng**: Thêm Observer mới (nhà đầu tư mới, thành viên mới) rất đơn giản, không ảnh hưởng đến Subject hoặc các Observer khác.
 
 **Kết quả:**
+
 ![Stock Market Demo](proof_images/Exercise02_StockMarketDemo.png)
 
 **Kết luận:**
@@ -61,7 +65,8 @@ Observer Pattern giúp chúng ta xây dựng hệ thống theo mô hình "publis
 
 **Bài toán**: Dịch vụ web yêu cầu JSON, hệ thống khác chỉ hỗ trợ XML. Viết adapter để chuyển đổi XML <-> JSON.
 
-**Sơ đồ UML**
+**Sơ đồ UML:**
+
 ![XML JSON Converter UML](proof_images/Exercise03_DataFormatConverter_UMLDiagram.svg)
 
 **Giải thích về lựa chọn Design Pattern (Adapter Pattern) cho bài toán này:**
@@ -71,6 +76,7 @@ Observer Pattern giúp chúng ta xây dựng hệ thống theo mô hình "publis
 - **Tính linh hoạt và mở rộng**: Khi có thêm định dạng dữ liệu mới cần hỗ trợ (ví dụ: CSV, YAML), bạn có thể tạo thêm các Adapter mới mà không cần sửa đổi core logic của hệ thống hiện tại.
 
 **Kết quả:**
+
 ![XML JSON Converter Demo](proof_images/Exercise03_DataFormatConverterDemo.png)
 
 **Kết luận:**
