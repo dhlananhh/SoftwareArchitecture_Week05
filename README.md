@@ -81,3 +81,11 @@ Observer Pattern giúp chúng ta xây dựng hệ thống theo mô hình "publis
 
 **Kết luận:**
 Adapter Pattern là một giải pháp hữu ích khi bạn cần tích hợp các component hoặc hệ thống có interface khác nhau. Nó giúp hệ thống trở nên linh hoạt hơn và tái sử dụng được các module code hiện có.
+
+---
+
+## B> Extra Exercise: Library Management System using Design Patterns
+
+**Sơ đồ UML:**
+
+![Library Management UML](proof_images/LibraryManagementSystem_UMLDiagram.png)
