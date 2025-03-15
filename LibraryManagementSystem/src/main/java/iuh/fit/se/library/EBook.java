@@ -20,6 +20,6 @@ public class EBook extends Book {
     @Override
     public void displayBookInfo() {
         super.displayBookInfo();
-        System.out.println("\nĐịnh dạng file: " + fileFormat);
+        System.out.println("Định dạng file: " + fileFormat + "\n");
     }
 }

@@ -20,6 +20,6 @@ public class PaperBook extends Book {
     @Override
     public void displayBookInfo() {
         super.displayBookInfo(); 
-        System.out.println("\nSố trang: " + pageCount);
+        System.out.println("Số trang: " + pageCount + " trang" + "\n");
     }
 }
