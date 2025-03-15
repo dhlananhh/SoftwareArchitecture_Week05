@@ -1,6 +1,6 @@
 package iuh.fit.se.stock;
 
-public class StockMarketApp {
+public class StockMarketDemo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Tạo cổ phiếu
