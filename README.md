@@ -18,36 +18,7 @@
 - Cả thư mục và tập tin đều có thể được hiển thị thông tin.
 
 **Sơ đồ UML**
-
-```plantuml
-@startuml
-class Client
-class Component <<interface>> {
-  +displayInfo()
-}
-class Leaf {
-  +displayInfo()
-}
-class Composite {
-  -children : List<Component>
-  +add(c : Component)
-  +remove(c : Component)
-  +getChild(index : int) : Component
-  +displayInfo()
-}
-
-Client --* Component
-Component <|-- Leaf
-Component <|-- Composite
-Composite --* Component : children
-
-note top of Component: <<interface>> Component: Base class for Leaf and Composite
-
-note bottom of Leaf: Leaf: Represents individual file
-
-note bottom of Composite: Composite: Represents Folder\ncontains children (Files and Folders)
-@enduml
-```
+![File System UML](proof_images/Exercise01_FileSystem_UMLDiagram.svg)
 
 **Giải thích về lựa chọn Design Pattern (Composite Pattern) cho bài toán này:**
 
@@ -70,55 +41,7 @@ Composite Pattern giúp chúng ta thiết kế hệ thống quản lý thư mụ
 **Bài toán**: Hệ thống cần thông báo cho các nhà đầu tư/thành viên nhóm khi có thay đổi giá cổ phiếu/trạng thái công việc.
 
 **Sơ đồ UML**
-
-```plantuml
-@startuml
-class Subject <<interface>> {
-    +register(observer : Observer)
-    +unregister(observer : Observer)
-    +notifyObservers()
-}
-
-class ConcreteSubject {
-    -observers : List<Observer>
-    -subjectState
-    +register(observer : Observer)
-    +unregister(observer : Observer)
-    +notifyObservers()
-    +getSubjectState()
-    +setSubjectState(state)
-}
-
-class Observer <<interface>> {
-    +update()
-}
-
-class ConcreteObserverA {
-    +update()
-    -observerState
-}
-
-class ConcreteObserverB {
-    +update()
-    -observerState
-}
-
-Subject <|-- ConcreteSubject
-Observer <|-- ConcreteObserverA
-Observer <|-- ConcreteObserverB
-ConcreteSubject --* Observer : observers
-
-note top of Subject: <<interface>> Subject:\nDefines interface for register,\nunregister and notify observers
-
-note top of Observer: <<interface>> Observer:\nDefines update interface for objects\nto be notified of subject changes
-
-note bottom of ConcreteSubject: ConcreteSubject:\nMaintains state, notifies\nobservers when state changes
-
-note bottom of ConcreteObserverA: ConcreteObserverA:\nStores concrete state\nImplements update() to\nkeep state consistent with subject
-
-note bottom of ConcreteObserverB: ConcreteObserverB:\nStores concrete state\nImplements update() to\nkeep state consistent with subject
-@enduml
-```
+![Stock Market UML](proof_images/Exercise02_StockMarket_UMLDiagram.svg)
 
 **Giải thích về lựa chọn Design Pattern (Observer Pattern) cho bài toán này:**
 
@@ -139,32 +62,7 @@ Observer Pattern giúp chúng ta xây dựng hệ thống theo mô hình "publis
 **Bài toán**: Dịch vụ web yêu cầu JSON, hệ thống khác chỉ hỗ trợ XML. Viết adapter để chuyển đổi XML <-> JSON.
 
 **Sơ đồ UML**
-
-```plantuml
-@startuml
-class Client
-interface Target {
-  +request()
-}
-class Adapter {
-  -adaptee : Adaptee
-  +request()
-}
-class Adaptee {
-  +specificRequest()
-}
-
-Client --* Target
-Target <|-- Adapter
-Adapter --* Adaptee
-
-note top of Target: <<interface>> Target:\nInterface that Client expects to use
-
-note bottom of Adapter: Adapter:\nConverts Target interface\nto Adaptee's interface
-
-note bottom of Adaptee: Adaptee:\nExisting class with incompatible interface
-@enduml
-```
+![XML JSON Converter UML](proof_images/Exercise03_DataFormatConverter_UMLDiagram.svg)
 
 **Giải thích về lựa chọn Design Pattern (Adapter Pattern) cho bài toán này:**
 
