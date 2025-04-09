@@ -19,14 +19,21 @@
 
 **Sơ đồ UML:**
 
-![File System UML](proof_images/Exercise01_FileSystem_UMLDiagram.svg)
+![File System UML](proof_images/Exercise01_FileSystem_UMLDiagram.png)
 
 **Giải thích về lựa chọn Design Pattern (Composite Pattern) cho bài toán này:**
 
-- **Biểu diễn cấu trúc cây**: Composite Pattern sinh ra để biểu diễn cấu trúc cây (part-whole hierarchy), chính xác như mô hình thư mục và tập tin. Thư mục đóng vai trò là "Composite" (nút cha), tập tin đóng vai trò là "Leaf" (nút lá), và cả hai cùng thuộc chung một "Component" (đối tượng chung).
-- **Xử lý thống nhất**: Composite Pattern cho phép bạn xử lý các đối tượng đơn lẻ (tập tin) và các đối tượng phức hợp (thư mục) một cách thống nhất thông qua interface chung (Component). Client code không cần phân biệt đang làm việc với tập tin hay thư mục.
-- **Thêm thao tác chung**: Chúng ta có thể định nghĩa các thao tác chung (ví dụ: hiển thị thông tin, tính kích thước,...) trên Component interface và các thao tác này sẽ được thực hiện trên cả tập tin và thư mục một cách tự nhiên.
-- **Cung cấp tính năng mở rộng**: Composite Pattern giúp dễ dàng thêm các loại đối tượng mới vào trong cấu trúc mà không cần thay đổi mã hiện tại, giúp duy trì nguyên tắc mở/đóng (Open/Closed Principle) trong thiết kế.
+Composite Design Pattern là một lựa chọn phù hợp cho bài toán này vì những lý do sau:
+
+- **Mô hình hóa cấu trúc cây:** Theo định nghĩa, Composite Pattern tổ chức các đối tượng theo cấu trúc phân cấp dạng cây để biểu diễn mối quan hệ "một phần - toàn bộ" (part-whole hierarchies). Trong bài toán này, một thư mục có thể chứa các tập tin (phần) hoặc các thư mục con (cũng là một "toàn bộ" có thể chứa các "phần" khác), tạo nên một cấu trúc cây rõ ràng.
+
+- **Xử lý thống nhất đối tượng đơn lẻ và đối tượng phức tạp:** Composite Pattern cho phép client (phần sử dụng các đối tượng) xử lý các đối tượng riêng lẻ (Leaf - tập tin) và các đối tượng chứa các đối tượng khác (Composite - thư mục) một cách đồng nhất thông qua một interface chung (Component). Điều này có nghĩa là ta có thể gọi phương thức hiển thị thông tin trên một tập tin cũng như trên một thư mục (mà nó sẽ tự động hiển thị thông tin của tất cả các thành phần bên trong nó).
+
+- **Tính tổng quát hóa:** Client có thể xem đối tượng bao gộp và bị bao gộp như nhau, tăng khả năng tổng quát hóa trong code của client, giúp dễ phát triển, nâng cấp và bảo trì.
+
+- **Xử lý một nhóm đối tượng tương tự như một đối tượng:** Composite Pattern được sử dụng khi cần xử lý một nhóm đối tượng tương tự theo cách xử lý 1 object. Trong trường hợp này, một thư mục (nhóm các tập tin và thư mục con) có thể được xem và thao tác như một thực thể duy nhất.
+
+- **Lợi ích theo nguồn:** Cung cấp cùng một cách sử dụng đối với từng đối tượng riêng lẻ hoặc nhóm các đối tượng với nhau.
 
 **Kết quả:**
 
@@ -34,7 +41,7 @@
 
 **Kết luận:**
 
-Composite Pattern giúp chúng ta thiết kế hệ thống quản lý thư mục và tập tin một cách hiệu quả, dễ mở rộng và bảo trì. Nó thể hiện rõ sức mạnh trong việc xử lý các cấu trúc dữ liệu phân cấp và phức tạp.
+Tóm lại, Composite Pattern giúp chúng ta xây dựng một hệ thống quản lý thư mục và tập tin một cách tự nhiên, phản ánh đúng cấu trúc cây và cho phép thao tác một cách linh hoạt với cả tập tin riêng lẻ và cả cấu trúc thư mục phức tạp.
 
 ---
 
@@ -44,13 +51,21 @@ Composite Pattern giúp chúng ta thiết kế hệ thống quản lý thư mụ
 
 **Sơ đồ UML:**
 
-![Stock Market UML](proof_images/Exercise02_StockMarket_UMLDiagram.svg)
+![Stock Market UML](proof_images/Exercise02_StockMarket_UMLDiagram.png)
 
 **Giải thích về lựa chọn Design Pattern (Observer Pattern) cho bài toán này:**
 
-- **Mô hình Publish-Subscribe**: Observer Pattern thể hiện mô hình "publish-subscribe", trong đó "Subject" (Cổ phiếu/Công việc) phát ra thông báo (publish) khi có thay đổi, và các "Observers" (Nhà đầu tư/Thành viên nhóm) đăng ký (subscribe) để nhận thông báo.
-- **Loose Coupling (Giảm liên kết)**: Subject không cần biết chi tiết về Observers, chỉ cần thông báo "có sự thay đổi" là đủ. Các Observer tự quyết định phản ứng của mình khi nhận được thông báo. Điều này giảm sự phụ thuộc giữa các component, tăng tính mềm dẻo.
-- **Mở rộng Observer dễ dàng**: Thêm Observer mới (nhà đầu tư mới, thành viên mới) rất đơn giản, không ảnh hưởng đến Subject hoặc các Observer khác.
+- Trong bài toán của bạn, cổ phiếu đóng vai trò là Subject, trạng thái của nó là giá. Các nhà đầu tư đã đăng ký theo dõi là các Observers. Khi giá cổ phiếu thay đổi (trạng thái của Subject thay đổi), tất cả các nhà đầu tư đã đăng ký (Observers) cần được thông báo ngay lập tức về sự thay đổi này [theo yêu cầu của bài toán].
+
+- Observer Pattern rất phù hợp với tình huống này vì những lý do sau:
+
+    - **Tách rời các đối tượng:** Observer Pattern cho phép bạn thay đổi Subject và Observer một cách độc lập. Cổ phiếu không cần biết chi tiết về từng nhà đầu tư, nó chỉ cần biết danh sách các đối tượng cần thông báo khi giá thay đổi. Tương tự, mỗi nhà đầu tư chỉ cần biết về cổ phiếu mà họ đang theo dõi và cách nhận thông báo, không cần biết về các nhà đầu tư khác.
+
+    - **Dễ dàng mở rộng:** Bạn có thể thêm bất kỳ số lượng nhà đầu tư nào muốn theo dõi cổ phiếu mà không cần sửa đổi lớp Stock (Subject). Chỉ cần thêm chúng vào danh sách các Observers. Điều này tuân theo nguyên tắc Open/Closed Principle (OCP).
+
+    - **Quản lý sự kiện:** Observer Pattern thường được sử dụng để quản lý sự kiện. Sự thay đổi giá cổ phiếu có thể được coi là một sự kiện, và các nhà đầu tư là những người quan tâm đến sự kiện này.
+
+    - **Loại bỏ sự phụ thuộc chặt chẽ:** Thay vì cổ phiếu phải trực tiếp gọi phương thức thông báo trên từng nhà đầu tư, Observer Pattern sử dụng một cơ chế đăng ký và thông báo, giúp giảm sự phụ thuộc giữa các lớp.
 
 **Kết quả:**
 
