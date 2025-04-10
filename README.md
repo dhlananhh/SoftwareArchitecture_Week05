@@ -39,10 +39,6 @@ Composite Design Pattern là một lựa chọn phù hợp cho bài toán này v
 
 ![File System Demo](proof_images/Exercise01_FileSystemDemo.png)
 
-**Kết luận:**
-
-Tóm lại, Composite Pattern giúp chúng ta xây dựng một hệ thống quản lý thư mục và tập tin một cách tự nhiên, phản ánh đúng cấu trúc cây và cho phép thao tác một cách linh hoạt với cả tập tin riêng lẻ và cả cấu trúc thư mục phức tạp.
-
 ---
 
 ### Exercise 2: Stock/job status change notification system
@@ -71,9 +67,6 @@ Tóm lại, Composite Pattern giúp chúng ta xây dựng một hệ thống qu�
 
 ![Stock Market Demo](proof_images/Exercise02_StockMarketDemo.png)
 
-**Kết luận:**
-Observer Pattern giúp chúng ta xây dựng hệ thống theo mô hình "publish-subscribe" một cách linh hoạt và dễ mở rộng. Nó giúp giảm sự phụ thuộc giữa các component, tăng tính linh hoạt và dễ bảo trì.
-
 ---
 
 ### Exercise 3: Convert XML data format to JSON and vice versa
@@ -82,20 +75,23 @@ Observer Pattern giúp chúng ta xây dựng hệ thống theo mô hình "publis
 
 **Sơ đồ UML:**
 
-![XML JSON Converter UML](proof_images/Exercise03_DataFormatConverter_UMLDiagram.svg)
+![XML JSON Converter UML](proof_images/Exercise03_DataFormatConverter_UMLDiagram.png)
 
 **Giải thích về lựa chọn Design Pattern (Adapter Pattern) cho bài toán này:**
 
-- **Giải quyết interface không tương thích**: Adapter Pattern giúp hai interface không tương thích (JSON service vs XML system) có thể làm việc cùng nhau bằng cách tạo ra một "adapter" trung gian chuyển đổi dữ liệu qua lại giữa hai bên.
-- **Re sử dụng code**: Thay vì viết lại hệ thống XML để hiểu JSON, hoặc ngược lại, Adapter cho phép tận dụng code hiện có của cả hai hệ thống, chỉ cần thêm lớp adapter để "dịch" dữ liệu.
-- **Tính linh hoạt và mở rộng**: Khi có thêm định dạng dữ liệu mới cần hỗ trợ (ví dụ: CSV, YAML), bạn có thể tạo thêm các Adapter mới mà không cần sửa đổi core logic của hệ thống hiện tại.
+- **Giải quyết sự không tương thích giữa các interface:** Yêu cầu đặt ra là một dịch vụ web yêu cầu dữ liệu ở định dạng JSON, trong khi một hệ thống khác chỉ hỗ trợ dữ liệu ở định dạng XML. Đây là tình huống điển hình về sự không tương thích giữa hai interface khác nhau. Adapter Pattern được thiết kế để chuyển đổi interface của một lớp thành một interface khác mà client mong đợi.
+
+- **Cho phép các interface không liên quan làm việc cùng nhau:** Adapter Pattern cho phép các interface (trong trường hợp này là cách biểu diễn dữ liệu XML và JSON) không liên quan tới nhau có thể làm việc cùng nhau. Adapter sẽ đóng vai trò trung gian để kết nối và chuyển đổi dữ liệu giữa hai định dạng này.
+
+- **Tái sử dụng lớp đã tồn tại:** Hệ thống hỗ trợ XML đã tồn tại và chúng ta không muốn hoặc không thể thay đổi interface của nó. Adapter Pattern cho phép chúng ta sử dụng lại thư viện với interface không thay đổi do không có mã nguồn bằng cách tạo một lớp Adapter "bọc ngoài" (Wrapper Pattern) để chuyển đổi dữ liệu cho phù hợp với yêu cầu của dịch vụ web mới.
+
+- **Đảm bảo nguyên tắc Open/Closed:** Việc sử dụng Adapter Pattern giúp tuân thủ nguyên tắc Open/Closed, nghĩa là chúng ta có thể mở rộng khả năng tương tác với các định dạng dữ liệu mới trong tương lai bằng cách tạo thêm các Adapter mới mà không cần sửa đổi code của các hệ thống hiện có (dịch vụ web JSON và hệ thống XML).
+
+- **Tránh thay đổi code của các lớp hiện có:** Adapter Pattern cho phép các lớp có các interface khác nhau có thể dễ dàng giao tiếp tốt với nhau thông qua interface trung gian, không cần thay đổi code của lớp có sẵn cũng như lớp đang viết.
 
 **Kết quả:**
 
 ![XML JSON Converter Demo](proof_images/Exercise03_DataFormatConverterDemo.png)
-
-**Kết luận:**
-Adapter Pattern là một giải pháp hữu ích khi bạn cần tích hợp các component hoặc hệ thống có interface khác nhau. Nó giúp hệ thống trở nên linh hoạt hơn và tái sử dụng được các module code hiện có.
 
 ---
 
