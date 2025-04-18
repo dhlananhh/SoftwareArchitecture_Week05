@@ -1,16 +1,27 @@
 package iuh.fit.se.dataformat;
 
-public class XmlToJsonAdapter implements DataConverter {
-	private XmlDataSystem xmlDataSystem; // Composition: chứa instance Adaptee
+public class XmlToJsonAdapter implements JsonDataConverter {
+	private XmlDataProcessor xmlProcessor;
 
-    public XmlToJsonAdapter(XmlDataSystem system) {
-        this.xmlDataSystem = system;
+    public XmlToJsonAdapter(XmlDataProcessor xmlProcessor) {
+        this.xmlProcessor = xmlProcessor;
     }
 
     @Override
-    public String convertFormat(String xmlData) {
-        System.out.println("Adapter: Chuyển đổi XML sang JSON...");
-        String jsonData = xmlDataSystem.processXmlData(xmlData); // Gọi phương thức của Adaptee
-        return jsonData; // Trả về dữ liệu đã chuyển đổi (dạng JSON mô phỏng)
+    public String toJson(XmlData xmlData) {
+        System.out.println("Converting XML to JSON...");
+        String processedXml = xmlProcessor.processXml(xmlData);
+        // Thực hiện chuyển đổi từ chuỗi XML đã xử lý sang chuỗi JSON
+        String jsonData = "{ \"data\": \"" + processedXml.replaceAll("<\\/?xml>|<\\/?data>", "") + "\" }";
+        return jsonData;
+    }
+
+    @Override
+    public XmlData toXml(JsonData jsonData) {
+        System.out.println("Converting JSON to XML...");
+        String jsonDataContent = jsonData.getData();
+        // Thực hiện chuyển đổi từ chuỗi JSON sang chuỗi XML
+        String xmlString = "<xml><data>" + jsonDataContent + "</data></xml>";
+        return xmlProcessor.parseXml(xmlString);
     }
 }
