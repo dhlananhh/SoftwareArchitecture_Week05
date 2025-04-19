@@ -8,7 +8,7 @@ import iuh.fit.se.library.search.SearchStrategy;
 import iuh.fit.se.library.notification.LibraryEventObserver;
 import iuh.fit.se.library.borrow.*;
 
-public class Library {
+public class Library  {
 
     private static Library instance;
     private List<Book> books = new ArrayList<>();
