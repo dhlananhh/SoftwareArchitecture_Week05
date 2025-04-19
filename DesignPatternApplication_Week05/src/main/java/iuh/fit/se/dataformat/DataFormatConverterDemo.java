@@ -14,16 +14,4 @@ public class DataFormatConverterDemo {
         XmlData xmlOutput = adapter.toXml(jsonInput);
         System.out.println("XML Output: " + xmlOutput);
 	}
-	
-	public void useJsonConverter(JsonDataConverter converter, String data) {
-        if (data.startsWith("{")) {
-            XmlData xmlData = converter.toXml(new JsonData(data.replaceAll("[{}\\s\"data:\"]", "")));
-            System.out.println("Processed XML by converter: " + xmlData);
-        } else if (data.startsWith("<")) {
-            String jsonData = converter.toJson(new XmlData(data.replaceAll("[<>/xml\\sdata=]", "")));
-            System.out.println("Processed JSON by converter: " + jsonData);
-        } else {
-            System.out.println("Invalid data format.");
-        }
-    }
 }

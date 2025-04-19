@@ -12,14 +12,14 @@ public class XmlToJsonAdapter implements JsonDataConverter {
         System.out.println("Converting XML to JSON...");
         String processedXml = xmlProcessor.processXml(xmlData);
         // Thực hiện chuyển đổi từ chuỗi XML đã xử lý sang chuỗi JSON
-        String jsonData = "{ \"data\": \"" + processedXml.replaceAll("<\\/?xml>|<\\/?data>", "") + "\" }";
+        String jsonData = "{ \"data\": \"" + processedXml.replace("</xml>", "").replace("<xml>", "").replace("<data>", "").replace("</data>", "") + "\" }";
         return jsonData;
     }
 
     @Override
     public XmlData toXml(JsonData jsonData) {
         System.out.println("Converting JSON to XML...");
-        String jsonDataContent = jsonData.getData();
+        String jsonDataContent =  jsonData.getData();
         // Thực hiện chuyển đổi từ chuỗi JSON sang chuỗi XML
         String xmlString = "<xml><data>" + jsonDataContent + "</data></xml>";
         return xmlProcessor.parseXml(xmlString);
