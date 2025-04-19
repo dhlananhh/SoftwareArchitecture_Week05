@@ -19,7 +19,7 @@
 
 **Class Diagram:**
 
-![File System UML](proof_images/Exercise01_FileSystem_UMLDiagram.png)
+![File System UML](proof_images/Exercise01_FileSystem_ClassDiagram.png)
 
 **Code execution results:**
 
@@ -27,13 +27,35 @@
 
 ---
 
-### Exercise 2: Stock/job status change notification system
+### Exercise 2: UI Components
 
-**Bài toán**: Hệ thống cần thông báo cho các nhà đầu tư/thành viên nhóm khi có thay đổi giá cổ phiếu/trạng thái công việc.
+**Bài toán**:
+Trong một giao diện người dùng, các thành phần như nút bấm, các hộp thoại, thanh điều hướng có thể là các phần tử riêng biệt hoặc nhóm lại thành các phần tử phức tạp hơn.
+Composite Design Pattern có thể giúp bạn tổ chức các phần tử UI này vào các nhóm hợp lý mà không cần phải thay đổi cách thức hoạt động của chúng.
+
+Hãy áp dụng Composite Design Pattern để giải bài toán trên.
+
+Yêu cầu:
+  - Vẽ Class Diagram mô phỏng bài toán trên
+  - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
 
 **Class Diagram:**
 
-![Stock Market UML](proof_images/Exercise02_StockMarket_UMLDiagram.png)
+![UI Components](proof_images/Exercise02_UIComponents_ClassDiagram.png)
+
+**Code execution results:**
+
+---
+
+### Exercise 3: Stock Market
+
+**Bài toán**:
+Khi giá của một cổ phiếu thay đổi, các nhà đầu tư đã đăng ký để theo dõi cổ phiếu đó sẽ nhận thông báo ngay lập tức về sự thay đổi.
+Trong một dự án phần mềm, khi có sự thay đổi về tình trạng hoặc trạng thái công việc (task), các thành viên trong nhóm sẽ nhận được thông báo tự động để theo dõi tiến độ.
+
+**Class Diagram:**
+
+![Stock Market UML](proof_images/Exercise03_StockMarket_ClassDiagram.png)
 
 **Code execution results:**
 
@@ -41,17 +63,24 @@
 
 ---
 
-### Exercise 3: Convert XML data format to JSON and vice versa
+### Exercise 5: Data Format Converter
 
-**Bài toán**: Dịch vụ web yêu cầu JSON, hệ thống khác chỉ hỗ trợ XML. Viết adapter để chuyển đổi XML <-> JSON.
+**Bài toán**:
+Một dịch vụ web yêu cầu đầu vào ở định dạng JSON, nhưng một hệ thống khác chỉ hỗ trợ XML. Bạn có thể viết một adapter để chuyển đổi dữ liệu từ XML sang JSON và ngược lại.
+
+Hãy áp dụng Observer Design Pattern vào các trường hợp trên
+
+Yêu cầu:
+  - Vẽ Class Diagram mô phỏng bài toán trên
+  - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
 
 **Class Diagram:**
 
-![XML JSON Converter UML](proof_images/Exercise03_DataFormatConverter_UMLDiagram.png)
+![XML JSON Converter UML](proof_images/Exercise05_DataFormatConverter_ClassDiagram.png)
 
 **Code execution results:**
 
-![XML JSON Converter Demo](proof_images/Exercise03_DataFormatConverterDemo.png)
+![XML JSON Converter Demo](proof_images/Exercise05_DataFormatConverterDemo.png)
 
 ---
 
