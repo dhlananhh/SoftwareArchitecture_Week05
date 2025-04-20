@@ -17,6 +17,12 @@
 - Tập tin chỉ chứa dữ liệu, không chứa thư mục/tập tin khác.
 - Cả thư mục và tập tin đều có thể được hiển thị thông tin.
 
+Hãy áp dụng Composite Design Pattern để giải bài toán trên.
+
+**Yêu cầu:**
+  - Vẽ Class Diagram mô phỏng bài toán trên
+  - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
+
 **Class Diagram:**
 
 ![File System UML](proof_images/Exercise01_FileSystem_ClassDiagram.png)
@@ -35,7 +41,7 @@ Composite Design Pattern có thể giúp bạn tổ chức các phần tử UI n
 
 Hãy áp dụng Composite Design Pattern để giải bài toán trên.
 
-Yêu cầu:
+**Yêu cầu:**
   - Vẽ Class Diagram mô phỏng bài toán trên
   - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
 
@@ -55,6 +61,12 @@ Yêu cầu:
 Khi giá của một cổ phiếu thay đổi, các nhà đầu tư đã đăng ký để theo dõi cổ phiếu đó sẽ nhận thông báo ngay lập tức về sự thay đổi.
 Trong một dự án phần mềm, khi có sự thay đổi về tình trạng hoặc trạng thái công việc (task), các thành viên trong nhóm sẽ nhận được thông báo tự động để theo dõi tiến độ.
 
+Hãy áp dụng Observer Design Pattern vào các trường hợp trên
+
+**Yêu cầu:**
+  - Vẽ Class Diagram mô phỏng bài toán trên
+  - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
+
 **Class Diagram:**
 
 ![Stock Market UML](proof_images/Exercise03_StockMarket_ClassDiagram.png)
@@ -69,6 +81,12 @@ Trong một dự án phần mềm, khi có sự thay đổi về tình trạng h
 
 **Bài toán**:
 Trong một dự án phần mềm, khi có sự thay đổi về tình trạng hoặc trạng thái công việc (task), các thành viên trong nhóm sẽ nhận được thông báo tự động để theo dõi tiến độ.
+
+Hãy áp dụng Observer Design Pattern vào các trường hợp trên
+
+**Yêu cầu:**
+  - Vẽ Class Diagram mô phỏng bài toán trên
+  - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
 
 **Class Diagram:**
 
@@ -87,7 +105,7 @@ Một dịch vụ web yêu cầu đầu vào ở định dạng JSON, nhưng m�
 
 Hãy áp dụng Observer Design Pattern vào các trường hợp trên
 
-Yêu cầu:
+**Yêu cầu:**
   - Vẽ Class Diagram mô phỏng bài toán trên
   - Sử dụng ngôn ngữ Java để cài đặt mô phỏng bài toán trên
 
