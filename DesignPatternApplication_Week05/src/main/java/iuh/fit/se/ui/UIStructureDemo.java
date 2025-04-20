@@ -2,7 +2,7 @@ package iuh.fit.se.ui;
 
 import java.util.List;
 
-public class UIStructureExample {
+public class UIStructureDemo {
 
 	public static void main(String[] args) {
 		// Tạo các thành phần đơn lẻ
