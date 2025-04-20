@@ -23,7 +23,7 @@
 
 **Code execution results:**
 
-![File System Demo](proof_images/Exercise01_FileSystemDemo.png)
+![File System Demo](proof_images/Exercise01_FileSystem_Demo.png)
 
 ---
 
@@ -45,6 +45,8 @@ Yêu cầu:
 
 **Code execution results:**
 
+![UI Components](proof_images/Exercise02_UIComponents_Demo.png)
+
 ---
 
 ### Exercise 3: Stock Market
@@ -59,7 +61,22 @@ Trong một dự án phần mềm, khi có sự thay đổi về tình trạng h
 
 **Code execution results:**
 
-![Stock Market Demo](proof_images/Exercise02_StockMarketDemo.png)
+![Stock Market Demo](proof_images/Exercise03_StockMarket_Demo.png)
+
+---
+
+### Exercise 4: Task Management
+
+**Bài toán**:
+Trong một dự án phần mềm, khi có sự thay đổi về tình trạng hoặc trạng thái công việc (task), các thành viên trong nhóm sẽ nhận được thông báo tự động để theo dõi tiến độ.
+
+**Class Diagram:**
+
+![Task Management UML](proof_images/Exercise04_TaskManagement_ClassDiagram.png)
+
+**Code execution results:**
+
+![Task Management Demo](proof_images/Exercise04_TaskManagement_Demo.png)
 
 ---
 
@@ -80,12 +97,10 @@ Yêu cầu:
 
 **Code execution results:**
 
-![XML JSON Converter Demo](proof_images/Exercise05_DataFormatConverterDemo.png)
+![XML JSON Converter Demo](proof_images/Exercise05_DataFormatConverter_Demo.png)
 
 ---
 
 ## B> Extra Exercise: Library Management System using Design Patterns
 
-**Class Diagram:**
-
-![Library Management UML](proof_images/LibraryManagementSystem_UMLDiagram.png)
+**Code execution results:**
