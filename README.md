@@ -104,3 +104,15 @@ Yêu cầu:
 ## B> Extra Exercise: Library Management System using Design Patterns
 
 **Code execution results:**
+
+![Library Management System Demo](proof_images/LibraryManagementSystem_Demo_1.png)
+
+![Library Management System Demo](proof_images/LibraryManagementSystem_Demo_2.png)
+
+![Library Management System Demo](proof_images/LibraryManagementSystem_Demo_3.png)
+
+![Library Management System Demo](proof_images/LibraryManagementSystem_Demo_4.png)
+
+![Library Management System Demo](proof_images/LibraryManagementSystem_Demo_5.png)
+
+![Library Management System Demo](proof_images/LibraryManagementSystem_Demo_6.png)
